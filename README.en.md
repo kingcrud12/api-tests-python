@@ -2,23 +2,28 @@
 
 ## Description
 
-Ce projet est un exemple de **tests automatisés d’API** utilisant **Python** et **pytest**, conçu pour démontrer les bonnes pratiques QA et l’intégration continue.  
-Il utilise une API publique (`https://jsonplaceholder.typicode.com`) pour tester des endpoints CRUD (GET, POST, DELETE) et produire des rapports de tests clairs.
+This project is an example of API test automation using Python and pytest, designed to demonstrate QA best practices and continuous integration.
+It uses a public API (https://jsonplaceholder.typicode.com) to test CRUD endpoints (GET, POST, DELETE) and produce clear test reports
 
 ---
 
-## Technologies utilisées
+Technologies Used
 
-- **Python 3.12**
-- **pytest** pour l’exécution des tests
-- **pytest-html** pour la génération de rapports HTML
-- **requests** pour les appels HTTP
-- **GitHub Actions** pour l’intégration continue (CI)
-- **Git / GitHub** pour la gestion de versions et le pipeline CI
+Python 3.12
+
+pytest for test execution
+
+pytest-html for generating HTML reports
+
+requests for HTTP requests
+
+GitHub Actions for continuous integration (CI)
+
+Git / GitHub for version control and CI pipeline
 
 ---
 
-## Structure du projet
+## Project structure
 
 ```text
 api-tests-python/
@@ -35,18 +40,16 @@ api-tests-python/
 
 ```
 
----
-
 ## Installation
 
-1 - Cloner le projet :
+1 - Clone project :
 
 ```bash
 git clone https://github.com/kingcrud12/api-tests-python.git
 cd api-tests-python
 ``` 
 
-2 - Créer un environnement virtuel et installer les dépendances :
+2- Create a virtual environment and install dependencies:
 
 ```bash
 python -m venv venv
@@ -56,27 +59,26 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ``` 
 
-3- Lancer les tests 
-
-Pour exécuter tous les tests avec affichage verbeux : 
+3- Run the tests
 
 ```bash
 pytest -v
 ``` 
 
-4- Pour générer un rapport HTML :
+4 - Generate an HTML report:
 
 ```bash
 pytest -v --html=reports/report.html --self-contained-html
 ``` 
 
-5- Pipeline CI (GitHub Actions) 
-Le projet inclut un workflow CI configuré dans `.github/workflows/api-tests.yml` qui :
+5- CI Pipeline (GitHub Actions)
 
-* **S’exécute** à chaque `push` et `pull request`
-* **Installe** Python `3.12` et les dépendances
-* **Lance** tous les tests
-* **Génère** un rapport HTML (à améliorer avec upload comme artefact si souhaité)
+The project includes a CI workflow configured in `.github/workflows/api-tests.yml` which:
+
+* **Runs on every**  `push` et `pull request`
+* **Installs** Python `3.12` and dependencies
+* **Executes** all tests
+* **Generates** an HTML report (can be improved with artifact upload if desired)
 
 ```bash
 name: API Tests
@@ -110,4 +112,4 @@ jobs:
 
 
 
-🌐 Read this project in: [English](README.en.md)
+🌐 Read this project in: [French](README.md)

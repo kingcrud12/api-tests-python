@@ -1,7 +1,5 @@
 import requests
-import json  # module standard pour formater JSON
-
-BASE_URL = "https://jsonplaceholder.typicode.com"
+import json
 
 
 def test_get_users_returns_200(base_url):
