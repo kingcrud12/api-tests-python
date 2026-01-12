@@ -7,7 +7,7 @@ It uses a public API (https://jsonplaceholder.typicode.com) to test CRUD endpoin
 
 ---
 
-Technologies Used
+## Technologies Used
 
 Python 3.12
 
