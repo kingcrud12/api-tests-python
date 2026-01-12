@@ -32,3 +32,81 @@ api-tests-python/
 │   ├── test_get_user_not_found.py
 │   └── reports/              # Rapports HTML générés par pytest-html
 └── README.md
+
+```
+
+---
+
+## Installation
+
+1 - Cloner le projet :
+
+```bash
+git clone https://github.com/kingcrud12/api-tests-python.git
+cd api-tests-python
+``` 
+
+2 - Créer un environnement virtuel et installer les dépendances :
+
+```bash
+python -m venv venv
+source venv/bin/activate    # Mac/Linux
+venv\Scripts\activate       # Windows
+pip install --upgrade pip
+pip install -r requirements.txt
+``` 
+
+3- Lancer les tests 
+
+Pour exécuter tous les tests avec affichage verbeux : 
+
+```bash
+pytest -v
+``` 
+
+4- Pour générer un rapport HTML :
+
+```bash
+pytest -v --html=reports/report.html --self-contained-html
+``` 
+
+5- Pipeline CI (GitHub Actions) 
+Le projet inclut un workflow CI configuré dans `.github/workflows/api-tests.yml` qui :
+
+* **S’exécute** à chaque `push` et `pull request`
+* **Installe** Python `3.12` et les dépendances
+* **Lance** tous les tests
+* **Génère** un rapport HTML (à améliorer avec upload comme artefact si souhaité)
+
+```bash
+name: API Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest -v --html=reports/report.html --self-contained-html
+
+``` 
+
+
+
